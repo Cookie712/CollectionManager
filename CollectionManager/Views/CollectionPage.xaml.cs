@@ -26,16 +26,16 @@ public partial class CollectionPage : ContentPage
         // Sprawdzenie duplikatu
         if (_collection.Items.Any(item => item.Name == name && item.Description == desc))
         {
-            bool kontynuuj = await DisplayAlert("Uwaga",
-                "Przedmiot o takiej nazwie i opisie ju¿ istnieje.\nCzy mimo to chcesz go dodaæ?",
+            bool continue = await DisplayAlert("Uwaga",
+                "Przedmiot o takiej nazwie i opisie juÂ¿ istnieje.\nCzy mimo to chcesz go dodaÃ¦?",
                 "Tak", "Nie");
-            if (!kontynuuj) return;
+            if (!continue) return;
         }
 
         string other = await DisplayPromptAsync("Nowy przedmiot", "Inne:");
         string priceStr = await DisplayPromptAsync("Nowy przedmiot", "Cena (np. 25.50):");
-        string status = await DisplayPromptAsync("Nowy przedmiot", "Status (np. Nowy, U¿ywany, Na sprzeda¿):");
-        string ratingStr = await DisplayPromptAsync("Nowy przedmiot", "Ocena (1–10):");
+        string status = await DisplayPromptAsync("Nowy przedmiot", "Status (np. Nowy, UÂ¿ywany, Na sprzedaÂ¿):");
+        string ratingStr = await DisplayPromptAsync("Nowy przedmiot", "Ocena (1â€“10):");
         string comment = await DisplayPromptAsync("Nowy przedmiot", "Komentarz:");
 
         decimal.TryParse(priceStr, out var price);
@@ -44,7 +44,7 @@ public partial class CollectionPage : ContentPage
         string imagePath = "";
         var result = await FilePicker.PickAsync(new PickOptions
         {
-            PickerTitle = "Wybierz zdjêcie",
+            PickerTitle = "Wybierz zdjÃªcie",
             FileTypes = FilePickerFileType.Images
         });
         if (result != null)
@@ -74,7 +74,7 @@ public partial class CollectionPage : ContentPage
     {
         if (sender is Button btn && btn.BindingContext is CollectionItem item)
         {
-            string newName = await DisplayPromptAsync("Edytuj nazwê", "", initialValue: item.Name);
+            string newName = await DisplayPromptAsync("Edytuj nazwÃª", "", initialValue: item.Name);
             string newDesc = await DisplayPromptAsync("Edytuj opis", "", initialValue: item.Description);
 
             bool isDuplicate = _collection.Items.Any(i =>
@@ -82,16 +82,16 @@ public partial class CollectionPage : ContentPage
 
             if (isDuplicate)
             {
-                bool kontynuuj = await DisplayAlert("Uwaga",
-                    "Inny przedmiot o takiej nazwie i opisie ju¿ istnieje.\nCzy mimo to chcesz zapisaæ zmiany?",
+                bool continue = await DisplayAlert("Uwaga",
+                    "Inny przedmiot o takiej nazwie i opisie juÂ¿ istnieje.\nCzy mimo to chcesz zapisaÃ¦ zmiany?",
                     "Tak", "Nie");
-                if (!kontynuuj) return;
+                if (!continue) return;
             }
 
             string newOther = await DisplayPromptAsync("Edytuj inne", "", initialValue: item.Other);
             string newStatus = await DisplayPromptAsync("Edytuj status", "", initialValue: item.Status);
-            string newPriceStr = await DisplayPromptAsync("Edytuj cenê", "", initialValue: item.Price.ToString());
-            string newRatingStr = await DisplayPromptAsync("Edytuj ocenê", "", initialValue: item.Rating.ToString());
+            string newPriceStr = await DisplayPromptAsync("Edytuj cenÃª", "", initialValue: item.Price.ToString());
+            string newRatingStr = await DisplayPromptAsync("Edytuj ocenÃª", "", initialValue: item.Rating.ToString());
             string newComment = await DisplayPromptAsync("Edytuj komentarz", "", initialValue: item.Comment);
 
             if (int.TryParse(newRatingStr, out int rating)) item.Rating = rating;
@@ -103,13 +103,13 @@ public partial class CollectionPage : ContentPage
             item.Status = newStatus;
             item.Comment = newComment;
 
-            // Obs³uga zmiany zdjêcia
-            bool changeImage = await DisplayAlert("Zdjêcie", "Czy chcesz zmieniæ zdjêcie?", "Tak", "Nie");
+            // ObsÂ³uga zmiany zdjÃªcia
+            bool changeImage = await DisplayAlert("ZdjÃªcie", "Czy chcesz zmieniÃ¦ zdjÃªcie?", "Tak", "Nie");
             if (changeImage)
             {
                 var result = await FilePicker.PickAsync(new PickOptions
                 {
-                    PickerTitle = "Wybierz nowe zdjêcie",
+                    PickerTitle = "Wybierz nowe zdjÃªcie",
                     FileTypes = FilePickerFileType.Images
                 });
                 if (result != null)
