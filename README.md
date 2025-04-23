@@ -1,6 +1,10 @@
 # 🎮 **System zarządzania kolekcjonerstwem** 📚
 
-Witaj w aplikacji **System zarządzania kolekcjonerstwem**! 🎉  
+![Screenshot 2025-04-23 202051](https://github.com/user-attachments/assets/0c571b40-5274-405f-928f-132f1aca3d2a)
+
+![Screenshot 2025-04-23 203735](https://github.com/user-attachments/assets/f427f0f0-824f-4e75-8411-db348f4b72fd)
+
+**System zarządzania kolekcjonerstwem**! 🎉  
 Aplikacja stworzona w **.NET MAUI** do zarządzania różnymi rodzajami kolekcji, takimi jak książki 📖, gry na konsole 🎮, gry planszowe 🎲, zestawy LEGO 🧩, karty TCG 🃏, płyty z muzyką 🎶 i wiele innych.
 
 Aplikacja pomoże Ci uporządkować Twoje kolekcje w prosty i efektywny sposób! 💼✨
